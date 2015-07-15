@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by Matias on 12/06/2015.
+ * Created by Matias on 15/07/2015.
  */
 public class flightTest extends chromeBaseTest {
 

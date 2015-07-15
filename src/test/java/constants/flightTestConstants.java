@@ -1,7 +1,7 @@
 package constants;
 
 /**
- * Created by Matias on 12/06/2015.
+ * Created by Matias on 15/07/2015.
  */
 public class flightTestConstants {
     //credentials
