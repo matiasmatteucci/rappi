@@ -26,6 +26,7 @@ public class chromeBaseTest {
 
     @BeforeClass
     public static void createAndStartService() throws IOException {
+
         service = new ChromeDriverService.Builder()
   //                You can set up a local path for a specific instance of chromedriver here
   //              .usingDriverExecutable(new File("E:/chromedriver/chromedriver.exe"))
@@ -43,6 +44,7 @@ public class chromeBaseTest {
 
     @Before
     public void createDriver() {
+        System.out.println("creating chrome driver");
         driver = new RemoteWebDriver(service.getUrl(),
                 DesiredCapabilities.chrome());
 
@@ -51,6 +53,7 @@ public class chromeBaseTest {
 
     @After
     public void quitDriver(){
+        System.out.println("tearing down chrome driver");
 
         driver.quit();
 

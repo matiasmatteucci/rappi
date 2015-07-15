@@ -16,6 +16,9 @@ public class flightTest extends chromeBaseTest {
 
 
     private void Login() throws Exception {
+
+        System.out.println("Starting Login");
+
         // Visit site
         driver.get(flightTestConstants.URL);
 
@@ -40,6 +43,7 @@ public class flightTest extends chromeBaseTest {
     }
 
     private void selectFlight() throws Exception{
+        System.out.println("Starting selectFlight");
         //Find elements by css
         Select selectTo = new Select(driver.findElement(By.cssSelector(flightTestConstants.DESTINATION_DROPDOWN)));
         WebElement firstClassRadial = driver.findElement(By.cssSelector(flightTestConstants.SERVICE_CLASS_FIRST));
@@ -76,6 +80,7 @@ public class flightTest extends chromeBaseTest {
     }
 
     private void completePassengerData() throws Exception{
+        System.out.println("Starting completePassengerData");
         //Find elements by css
         WebElement creditCardNumber = driver.findElement(By.cssSelector(flightTestConstants.CARD_NUMBER));
         WebElement ccFirstName = driver.findElement(By.cssSelector(flightTestConstants.CC_FIRST_NAME));
@@ -103,10 +108,12 @@ public class flightTest extends chromeBaseTest {
     }
 
     private void verifyTextExistsInPage(String value) throws AssertionError {
+        System.out.println("verifying text");
         assertThat("String not found on the page", driver.getPageSource(), containsString(value));
     }
 
     private void verifyURL(String value){
+        System.out.println("verifying URL");
         assertThat("Unexpected URL", driver.getCurrentUrl(), containsString(value));
     }
 
