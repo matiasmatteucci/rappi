@@ -3,7 +3,9 @@ package test;
 import constants.gmailTestConstants;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -14,7 +16,8 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Matias on 12/06/2015.
  */
-public class gmailTest extends chromeBaseTest {
+public class gmailTest {
+    WebDriver driver = new FirefoxDriver();
 
     private void Login() throws Exception{
         // Visit site
