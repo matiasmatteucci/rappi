@@ -43,7 +43,7 @@ public class gmailTest {
         passwordField.sendKeys(gmailTestConstants.PASSWORD);
         signInButton.click();
 
-        Thread.sleep(10000);
+        Thread.sleep(30000);
     }
     private void composeAndSendEmail() throws Exception {
         WebElement composeButton = driver.findElement(By.cssSelector(gmailTestConstants.COMPOSE_BUTTON));
