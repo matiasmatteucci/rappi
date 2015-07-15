@@ -27,6 +27,7 @@ public class chromeBaseTest {
     @BeforeClass
     public static void createAndStartService() throws IOException {
         service = new ChromeDriverService.Builder()
+  //                You can set up a local path for a specific instance of chromedriver here
   //              .usingDriverExecutable(new File("E:/chromedriver/chromedriver.exe"))
                 .usingAnyFreePort()
                 .build();
