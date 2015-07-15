@@ -1,6 +1,7 @@
 package test;
 
 import constants.gmailTestConstants;
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,10 @@ import static org.junit.Assert.assertThat;
  * Created by Matias on 12/06/2015.
  */
 public class gmailTest {
+
+
     WebDriver driver = new FirefoxDriver();
+
 
     private void Login() throws Exception{
         // Visit site
@@ -31,7 +35,7 @@ public class gmailTest {
         usernameField.sendKeys(gmailTestConstants.USERNAME);
         nextButton.click();
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
         WebElement passwordField = driver.findElement(By.cssSelector(gmailTestConstants.PASSWORD_FIELD));
         WebElement signInButton = driver.findElement(By.cssSelector(gmailTestConstants.SIGN_IN_BUTTON));
@@ -46,7 +50,7 @@ public class gmailTest {
 
         composeButton.click();
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         WebElement toField = driver.findElement(By.cssSelector(gmailTestConstants.TO_FIELD));
         WebElement subjectField = driver.findElement(By.cssSelector(gmailTestConstants.SUBJECT_FIELD));
@@ -59,13 +63,15 @@ public class gmailTest {
         sendButton.click();
 
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.navigate().refresh();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         assertThat("Email not found in page", driver.getPageSource(), containsString("Super Cool Subject"));
     }
     private void deleteEmail() throws Exception{
+
+        Thread.sleep(5000);
 
         List<WebElement> emails = driver.findElements(By.cssSelector(gmailTestConstants.TEST_EMAIL));
 
@@ -79,6 +85,11 @@ public class gmailTest {
 
     }
 
+    @After
+    public void quitDriver(){
+
+        driver.quit();
+    }
 
 
     @Test
