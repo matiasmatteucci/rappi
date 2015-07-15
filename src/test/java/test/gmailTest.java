@@ -38,7 +38,7 @@ public class gmailTest extends chromeBaseTest {
         passwordField.sendKeys(gmailTestConstants.PASSWORD);
         signInButton.click();
 
-        Thread.sleep(30000);
+        Thread.sleep(10000);
     }
     private void composeAndSendEmail() throws Exception {
         WebElement composeButton = driver.findElement(By.cssSelector(gmailTestConstants.COMPOSE_BUTTON));
@@ -90,7 +90,7 @@ public class gmailTest extends chromeBaseTest {
     @Test
     public void run() throws Exception{
         Login();
-        //composeAndSendEmail();
+        composeAndSendEmail();
         deleteEmail();
     }
 
