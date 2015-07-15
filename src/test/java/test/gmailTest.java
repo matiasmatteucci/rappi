@@ -96,7 +96,7 @@ public class gmailTest {
     public void run() throws Exception{
         Login();
         //composeAndSendEmail();
-        //deleteEmail();
+        deleteEmail();
     }
 
 }
