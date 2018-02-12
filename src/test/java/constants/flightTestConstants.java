@@ -1,8 +1,5 @@
 package constants;
 
-/**
- * Created by Matias on 15/07/2015.
- */
 public class flightTestConstants {
     //credentials
     public static String URL = "http://newtours.demoaut.com";
