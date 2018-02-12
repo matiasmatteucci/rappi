@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import static org.junit.matchers.JUnitMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-/**
- * Created by Matias on 15/07/2015.
- */
+
 public class flightTest extends chromeBaseTest {
 
 
