@@ -1,13 +1,13 @@
 package test;
 
 import constants.flightTestConstants;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.assertThat;
+import static org.junit.matchers.JUnitMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Created by Matias on 15/07/2015.
@@ -36,7 +36,6 @@ public class flightTest extends chromeBaseTest {
 
         // Click on sigh in and wait
         signInButton.click();
-        Thread.sleep(1000);
 
         //Verify that we're on the correct page
         verifyURL("/mercuryreservation.php");
@@ -56,7 +55,6 @@ public class flightTest extends chromeBaseTest {
         firstClassRadial.click();
         //Click on Continue and wait
         findFlightsContinueButton.click();
-        Thread.sleep(1000);
 
         //Verify that we're on the correct page
         verifyURL("/mercuryreservation2.php");
@@ -71,7 +69,6 @@ public class flightTest extends chromeBaseTest {
         secondListThirdFlight.click();
         //Click on continue and wait
         selectFlightContinueButton.click();
-        Thread.sleep(1000);
 
         //Verify that we're on the correct page
         verifyURL("/mercurypurchase.php");
@@ -100,7 +97,6 @@ public class flightTest extends chromeBaseTest {
 
         //Click on Secure Purchase button and wait
         securePurchaseButton.click();
-        Thread.sleep(1000);
 
         //Verify that we're on the correct page
         verifyURL("/mercurypurchase2.php");

@@ -3,21 +3,19 @@ package test; /**
  * This is a base test class for the purpose of initializing and tearing down the driver.
  */
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-import org.junit.runners.BlockJUnit4ClassRunner;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
-@RunWith(BlockJUnit4ClassRunner.class)
 public class chromeBaseTest {
 
     private static ChromeDriverService service;
@@ -27,9 +25,9 @@ public class chromeBaseTest {
     @BeforeClass
     public static void createAndStartService() throws IOException {
 
+        System.setProperty("webdriver.chrome.driver", "bin/chromedriver");
+
         service = new ChromeDriverService.Builder()
-  //                You can set up a local path for a specific instance of chromedriver here
-  //              .usingDriverExecutable(new File("E:/chromedriver/chromedriver.exe"))
                 .usingAnyFreePort()
                 .build();
         service.start();
@@ -37,28 +35,29 @@ public class chromeBaseTest {
     }
 
     @AfterClass
-    public static void createAndStopService() {
+    public void createAndStopService() {
 
-        service.stop();
+          service.stop();
     }
 
-    @Before
+    @BeforeMethod
     public void createDriver() {
         System.out.println("creating chrome driver");
         driver = new RemoteWebDriver(service.getUrl(),
                 DesiredCapabilities.chrome());
 
+        //explicit wait
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 
     }
 
-    @After
-    public void quitDriver(){
+    @AfterMethod
+    public void quitDriver() {
         System.out.println("tearing down chrome driver");
 
         driver.quit();
 
+
     }
-
-
-
 }
